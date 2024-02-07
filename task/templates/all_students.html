@@ -3,18 +3,18 @@
 {% block content %}
 
 {% if all_students %}
-{% for student in all_students %}
-<hr>
-<p>{{student.name}} {{student.surname}}</p>
+    {% for student in all_students %}
+    <hr>
+        <p>{{student.name}} {{student.surname}}</p>
 
-{% if student.students %}
-<p>Lecture:</p>
-{% for lecture in student.lectures %}
-<p>{{lecture.name}}</p>
-{% endfor %}
-{% endif %}
+        {% if student.students %}
+            <p>Lecture:</p>
+            {% for lecture in student.lectures %}
+                <p>{{lecture.name}}</p>
+            {% endfor %}
+        {% endif %}
 
-{% endfor %}
+    {% endfor %}
 {% endif %}
 <hr>
 <p><a href="{{ url_for('new_student')}}">New student</a></p>
